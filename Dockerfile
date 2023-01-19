@@ -1,11 +1,9 @@
-# Secure and Minimal Docker-image of Varnish
-# https://hub.docker.com/repository/docker/huggla/sam-varnish
-
 # =========================================================================
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG SaM_VERSION="2.0.6-3.16"
+ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.17}
 ARG IMAGETYPE="application"
 ARG COREUTILS_VERSION="9.1"
 ARG CONTENTIMAGE1="huggla/sam-content:coreutils-$COREUTILS_VERSION"
