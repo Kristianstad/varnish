@@ -18,9 +18,7 @@ ARG BUILDCMDS=\
 "   cd varnish-6.0-configuration-templates "\
 '&& cp default.vcl "$DESTDIR/" '\
 '&& gzip "$DESTDIR/default.vcl"'
-ARG FINALCMDS="\
-"   ln -s /usr/lib /usr/libexec /usr/local/ "\
-'&& chown 0 /var/lib/varnish'
+ARG FINALCMDS="ln -s /usr/lib /usr/libexec /usr/local/"
 ARG LINUXUSEROWNEDRECURSIVE="/var/lib/varnish"
 # ARGs (can be passed to Build/Final) </END>
 
@@ -46,6 +44,8 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
+
+RUN chown 0:0 /var/lib/varnish
 
 ENV VAR_CONFIG_DIR="/etc/varnish" \	
     VAR_PID_FILE="/run/varnishd.pid" \	
