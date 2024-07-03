@@ -3,9 +3,9 @@
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_REPO=${SaM_REPO:-ghcr.io/kristianstad/secure_and_minimal}
-ARG ALPINE_VERSION=${ALPINE_VERSION:-3.19}
+ARG ALPINE_VERSION=${ALPINE_VERSION:-3.20}
 ARG IMAGETYPE="application"
-ARG COREUTILS_VERSION="9.4"
+ARG COREUTILS_VERSION="9.5"
 ARG CONTENTIMAGE1="ghcr.io/kristianstad/sam-content:coreutils-$COREUTILS_VERSION"
 ARG CONTENTSOURCE1="/content-app/usr/bin/rm"
 ARG CONTENTDESTINATION1="/tmp/finalfs/bin/"
