@@ -1,4 +1,4 @@
-# sam-varnish
+# varnish
 A Secure and Minimal docker-image with Varnish. Listens by default on port 6081.
 
 ## Environment variables
