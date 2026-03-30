@@ -45,7 +45,6 @@ then
                echo "}"
                echo
             done
-            subs='VCL_INIT;VCL_RECV;VCL_PIPE;VCL_PASS;VCL_HASH;VCL_HIT;VCL_MISS;VCL_BACKEND_RESPONSE;VCL_BACKEND_ERROR;VCL_DELIVER;VCL_PURGE;VCL_SYNTH;VCL_FINI'
             for sub in $VAR_SUBS
             do
                sub_lc="$(echo $sub | tr '[:upper:]' '[:lower:]')"
