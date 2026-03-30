@@ -22,6 +22,19 @@ then
                echo "import $import;"
             done
             echo
+            if [ -n "$VAR_C" ]
+            then
+               {
+                  echo "C{"
+                  eval "c_config=\$VAR_C"
+                  for row in $c_config
+                  do
+                     echo "   $row;"
+                  done
+                  echo "}"
+                  echo
+               }
+            fi
             for backend in $VAR_BACKENDS
             do
                echo "backend $backend {"
