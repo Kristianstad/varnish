@@ -29,9 +29,9 @@ then
                   eval "c_config=\$VAR_C"
                   for row in $c_config
                   do
-                     echo "   $row"
+                     echo "   $row;"
                   done
-                  echo "}"
+                  echo "}C"
                   echo
                }
             fi
