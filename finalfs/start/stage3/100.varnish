@@ -39,10 +39,12 @@ then
             do
                echo "backend $backend {"
                eval "backend_config=\$VAR_$backend"
+               IFS=$(echo -en '#')
                for row in $backend_config
                do
                   echo "   $row;"
                done
+               IFS=$(echo -en ';')
                echo "}"
                echo
             done
@@ -51,10 +53,12 @@ then
             do
                echo "acl $acl {"
                eval "acl_config=\$$acl"
+               IFS=$(echo -en '#')
                for row in $acl_config
                do
                   echo "   $row;"
                done
+               IFS=$(echo -en ';')
                echo "}"
                echo
             done
@@ -63,10 +67,12 @@ then
                sub_lc="$(echo $sub | tr '[:upper:]' '[:lower:]')"
                echo "sub $sub_lc {"
                eval "sub_rows=\$VAR_$sub"
+               IFS=$(echo -en '#')
                for row in $sub_rows
                do
                   echo "   $row;"
                done
+               IFS=$(echo -en ';')
                echo "}"
                echo
             done
@@ -76,7 +82,6 @@ then
          zcat default.vcl.gz > "$VAR_VCL_FILE"
       fi
    fi
-   sed -i 's/|semi|/;/g' "$VAR_VCL_FILE"
    tryMakeDir "$VAR_CONFIG_DIR/.ssh"
    if [ ! -s "$VAR_CONFIG_DIR/.ssh/authorized_keys" ]
    then
