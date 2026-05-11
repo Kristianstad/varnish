@@ -76,6 +76,7 @@ then
          zcat default.vcl.gz > "$VAR_VCL_FILE"
       fi
    fi
+   sed -i 's/|semi|/;/g' "$VAR_VCL_FILE"
    tryMakeDir "$VAR_CONFIG_DIR/.ssh"
    if [ ! -s "$VAR_CONFIG_DIR/.ssh/authorized_keys" ]
    then
