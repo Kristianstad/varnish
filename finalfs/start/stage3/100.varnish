@@ -16,11 +16,12 @@ then
             echo "vcl 4.1;"
             echo
             IFS_bak=$IFS
-            IFS=$(echo -en ';')
+            IFS=$(echo -en '#')
             for import in $VAR_IMPORTS
             do
                echo "import $import;"
             done
+            IFS=$(echo -en ';')
             echo
             if [ -n "$VAR_C" ]
             then
