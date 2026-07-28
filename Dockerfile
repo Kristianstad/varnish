@@ -49,7 +49,8 @@ COPY --from=build /finalfs /
 ARG ALPINE_VERSION
 ARG APP_VERSION
 
-RUN chown 0:0 /var/lib/varnish
+RUN chown 0:0 /var/lib/varnish \
+ && ulimit -l unlimited
 
 ENV VAR_CONFIG_DIR="/etc/varnish" \
     VAR_PID_FILE="/run/varnishd.pid" \
