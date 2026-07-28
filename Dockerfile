@@ -49,8 +49,7 @@ COPY --from=build /finalfs /
 ARG ALPINE_VERSION
 ARG APP_VERSION
 
-RUN chown 0:0 /var/lib/varnish \
- && ulimit -l unlimited
+RUN chown 0:0 /var/lib/varnish
 
 ENV VAR_CONFIG_DIR="/etc/varnish" \
     VAR_PID_FILE="/run/varnishd.pid" \
@@ -68,7 +67,6 @@ ENV VAR_CONFIG_DIR="/etc/varnish" \
     VAR_SSH_ADDRESS="0.0.0.0" \
     VAR_SSH_PORT="2222" \
     VAR_SSH_AUTHORIZED_KEYS="" \
-    VAR_KEEP_CAPS="cap_ipc_lock" \
     VAR_FINAL_COMMAND='varnishd -j $VAR_JAIL -P "$VAR_PID_FILE" -f "$VAR_VCL_FILE" -r $VAR_READ_ONLY_PARAMS -a $VAR_LISTEN_ADDRESS:$VAR_LISTEN_PORT -T $VAR_MANAGEMENT_ADDRESS:$VAR_MANAGEMENT_PORT -s $VAR_STORAGE -t $VAR_DEFAULT_TTL -F $VAR_ADDITIONAL_OPTS'
 
 # Generic template (don't edit) <BEGIN>
