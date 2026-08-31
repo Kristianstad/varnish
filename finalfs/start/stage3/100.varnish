@@ -52,10 +52,11 @@ then
             echo
             for acl in $VAR_ACLS
             do
-               echo "acl $acl {"
-               eval "acl_config=\$$acl"
+               acl_lc="$(echo $acl | tr '[:upper:]' '[:lower:]')"
+               echo "acl $acl_lc {"
+               eval "acl_rows=\$VAR_$acl"
                IFS=$(echo -en '#')
-               for row in $acl_config
+               for row in $acl_rows
                do
                   echo "   $row"
                done
